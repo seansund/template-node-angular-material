@@ -7,7 +7,9 @@
     "postinstall": "npm run install:client && npm run install:server",
     "install:client": "cd client && npm install",
     "install:server": "cd server && npm install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:client && npm run test:server",
+    "test:client": "cd client && npm test",
+    "test:server": "cd server && npm test"
   },
   "author": "",
   "license": "ISC"
