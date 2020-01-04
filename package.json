@@ -4,6 +4,9 @@
   "description": "Starter kit template for Angular UI with Material design",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run install:client && npm run install:server",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

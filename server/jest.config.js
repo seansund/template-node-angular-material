@@ -9,6 +9,7 @@ module.exports = {
     "coverage/",
     "src/logger/.*"
   ],
+  coverageDirectory: '../coverage/server',
   watchPathIgnorePatterns: [
     "node_modules/",
     "logs/",
