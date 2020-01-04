@@ -10,6 +10,7 @@ import 'reflect-metadata';
 import {buildGraphqlSchema} from './schema';
 import {workerManager} from './workers';
 import {Config, Container} from 'typescript-ioc';
+import * as path from 'path';
 
 const npmPackage = require(join(process.cwd(), 'package.json'));
 
@@ -42,8 +43,6 @@ export class ApiServer {
         __dirname,
       );
 
-      graphqlServer.express.use(apiRouter);
-
       const swaggerPath = join(process.cwd(), 'dist/swagger.json');
       if (existsSync(swaggerPath)) {
         Server.swagger(
@@ -55,6 +54,13 @@ export class ApiServer {
             endpoint: '/api-docs'
           },
         );
+      }
+
+      graphqlServer.express.use('/api', apiRouter);
+
+      const clientPath = path.join(process.cwd(), '../dist/client');
+      if (existsSync(clientPath)) {
+        graphqlServer.express.use(express.static(clientPath));
       }
 
       resolve(graphqlServer);
@@ -86,7 +92,7 @@ export class ApiServer {
   public async start(): Promise<ApiServer> {
     const graphQLServer = await this.getGraphQLServer();
 
-    this.server = await graphQLServer.start({port: this.PORT});
+    this.server = await graphQLServer.start({port: this.PORT, endpoint: '/api', playground: '/api'});
 
     const serverUrl = addressInfoToString(this.server.address());
 

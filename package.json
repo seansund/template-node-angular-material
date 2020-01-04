@@ -9,7 +9,16 @@
     "install:server": "cd server && npm install",
     "test": "npm run test:client && npm run test:server",
     "test:client": "cd client && npm test",
-    "test:server": "cd server && npm test"
+    "test:server": "cd server && npm test",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "start:dev": "npm run start:server && npm run start:client",
+    "start:server": "cd server && npm run start:dev &",
+    "start:client": "cd client && npm start",
+    "prestart": "npm run build",
+    "start": "cd server && npm run serve",
+    "serve": "cd server && npm run serve"
   },
   "author": "",
   "license": "ISC"
