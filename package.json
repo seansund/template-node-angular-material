@@ -1,0 +1,11 @@
+{
+  "name": "template-node-angular-material",
+  "version": "1.0.0",
+  "description": "Starter kit template for Angular UI with Material design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
