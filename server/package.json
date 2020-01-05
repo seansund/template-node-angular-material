@@ -19,7 +19,7 @@
     ]
   },
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf ../dist/server",
     "pretest": "npm run build",
     "test": "jest --coverage",
     "tdd": "jest --watch",
@@ -30,7 +30,7 @@
     "swagger": "swaggerGen -c ./swagger.config.json",
     "prestart": "npm run build",
     "start": "npm run serve",
-    "serve": "node dist/src",
+    "serve": "node ../dist/server/src",
     "start:dev": "ts-node-dev src/index.ts",
     "upgrade-interactive": "npm-check --update",
     "pact:verify": "ts-node test/pact-verify",

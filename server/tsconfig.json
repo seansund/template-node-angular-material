@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist",
+    "outDir": "../dist/server",
     "noImplicitAny": false,
     "sourceMap": false,
     "declaration": false,
